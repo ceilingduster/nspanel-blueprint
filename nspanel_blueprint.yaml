@@ -2033,7 +2033,8 @@ variables:
   ##### GENERAL #####
   blueprint_version: "3.1.0"
   nspanel_name: !input "nspanel_name"
-  time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
+#  time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
+  time: "{{ (now().strftime("%I:%M %p")) }}"
   language: !input "language"
 
   notification_sound: "switch.{{ nspanel_name_trigger }}_notification_sound"
@@ -2198,7 +2199,7 @@ variables:
   ##### MUI Multilingual User Interface (DE/EN) #####
   date01_mui: >-
     {%- if language == "DEU" -%} {{ ((as_timestamp(now())) | timestamp_custom('%a %d.%m' )) | replace('Mon', 'Montag,')| replace('Tue', 'Dienstag,')| replace('Wed', 'Mittwoch,')| replace('Thu', 'Donnerstag,')| replace('Fri', 'Freitag,')| replace('Sat', 'Samstag,')| replace('Sun', 'Sonntag,') }}
-    {%- elif language == "ENG" -%} {{ ((as_timestamp(now())) | timestamp_custom('%a %d.%m' )) | replace('Mon', 'Monday,')| replace('Tue', 'Tuesday,')| replace('Wed', 'Wednesday,')| replace('Thu', 'Thursday,')| replace('Fri', 'Friday,')| replace('Sat', 'Saturday,')| replace('Sun', 'Sunday,') }}
+    {%- elif language == "ENG" -%} {{ (now().strftime("%B %d, %Y")) }}
     {%- elif language == "BGR" -%} {{ ((as_timestamp(now())) | timestamp_custom('%a %d.%m' )) | replace('Mon', 'Понеделник,')| replace('Tue', 'Вторник,')| replace('Wed', 'Сряда,')| replace('Thu', 'Четвъртък,')| replace('Fri', 'Петък,')| replace('Sat', 'Събота,')| replace('Sun', 'Неделя,') }}
     {%- elif language == "DNK" -%} {{ ((as_timestamp(now())) | timestamp_custom('%a %d.%m' )) | replace('Mon', 'Mandag,')| replace('Tue', 'Tirsdag,')| replace('Wed', 'Onsdag,')| replace('Thu', 'Torsdag,')| replace('Fri', 'Fredag,')| replace('Sat', 'Lørdag,')| replace('Sun', 'Søndag,') }}
     {%- elif language == "EST" -%} {{ ((as_timestamp(now())) | timestamp_custom('%a %d.%m' )) | replace('Mon', 'Esmaspäev,')| replace('Tue', 'Teisipäev,')| replace('Wed', 'Kolmapäev,')| replace('Thu', 'Neljapäev,')| replace('Fri', 'Reede,')| replace('Sat', 'Laupäev,')| replace('Sun', 'Pühapäev,') }}
