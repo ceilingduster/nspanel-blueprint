@@ -4,39 +4,7 @@
 
 blueprint:
   name: NSPanel Configuration
-  description: '# Configuration and synchronization NSPanel via Blueprint
-
-This project allows you to configure your complete NSPanel via a Blueprint with UI.
-
-### *That means you dont have to customize any code or change any lines in the code.*
-
-So you have a nice graphical interface where you can build your NSPanel.
-And the best thing is, the installation takes only a few minutes.
-
-
-The goal was to create a version that allows everyone to use the NSpanel fully local without having to deal with programming or reading hours of documentation - *AND YES WE DID IT!!!!* ;)
-
-
-📕 Full documentation and installation is available here [NSPanel Configuration, Setup and HowTo](https://github.com/Blackymas/NSPanel_HA_Blueprint/wiki).
-
-
-📌 Step by Step - [Setup Video](https://www.youtube.com/watch?v=3afPFg6kUdc)
-
-
-🚀 How to create "Issues" when I have a problem [WIKI HowTo](https://github.com/Blackymas/NSPanel_HA_Blueprint/wiki)
-
-
-⭐ All Feature Requests can be found here [All Feature Request](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/new%20feature%20request)
-
-
-🎉 Roadmap Roadmap can be found here [Roadmap](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/roadmap)
-
-
-ℹ️ Version: v.3.1.0
-
-'
-
-  source_url: https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/nspnael_blueprint.yaml
+  description: 'Customized version of Blackymas/NSPanel Configuration'
   domain: automation
   homeassistant:
     min_version: 2022.11.1
@@ -2031,10 +1999,10 @@ trigger_variables:
 
 variables:
   ##### GENERAL #####
+ # time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
   blueprint_version: "3.1.0"
   nspanel_name: !input "nspanel_name"
-  time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
-#  time: "{{ (now().strftime("%I:%M %p")) }}"
+  time: "{{ (now().strftime("%I:%M %p")) }}"
   language: !input "language"
 
   notification_sound: "switch.{{ nspanel_name_trigger }}_notification_sound"
