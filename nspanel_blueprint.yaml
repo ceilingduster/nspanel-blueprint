@@ -2033,8 +2033,8 @@ variables:
   ##### GENERAL #####
   blueprint_version: "3.1.0"
   nspanel_name: !input "nspanel_name"
-#  time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
-  time: "{{ (now().strftime("%I:%M %p")) }}"
+  time: "{{ (as_timestamp(now()) | timestamp_custom('%H:%M')) }}"
+#  time: "{{ (now().strftime("%I:%M %p")) }}"
   language: !input "language"
 
   notification_sound: "switch.{{ nspanel_name_trigger }}_notification_sound"
